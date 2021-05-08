@@ -6,55 +6,51 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>listado De Usuario Registrados</title>
+    <title>Document</title>
 </head>
 <body>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <br>
+            <a href="{{url('companies/create')}}" class="btn btn-primary">Crear Nueva Empresa</a>
             <br><br>
-            <a href="{{url('users/create')}}" class="btn btn-primary">Crear Nuevo Usuario</a>
-            <br><br>
-            @if(session('status'))
-             <div class="alert alert-success">
-                {{session('status')}}
-            </div>
-            @endif
-            <table class="table table-strped tablet-bordered">
+            <br>
+            <table class="table table-striped tablet-bordered">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>NOMBRE</th>
-                    <th>APELLIDO</th>
-                    <th>CORREO ELECTRONICO</th>
+                    <th>DESCRIPCION</th>
+                    <th>NIT</th>
+                    <th>TELEFONO</th>
                     <th>OPCIONES</th>
-
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($users as $user)
                 <tr>
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->lastname}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>
-                        <form action="{{url('users', $user->id)}}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <a href="{{url('users',$user->id)}}" class="btn btn-info btn-sm">Detalles</a>
-                            <a href="{{url('users/edit', $user->id)}}" class="btn btn-warning btn-sm">Editar</a>
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                        </form>
-                    </td>
+                  @foreach($companies as $company)
+                      <tr>
+                          <td>{{$company->id}}</td>
+                          <td>{{$company->name}}</td>
+                          <td>{{$company->description}}</td>
+                          <td>{{$company->nit}}</td>
+                          <td>{{$company->phone}}</td>
+                          <td>
+
+                              <a href=""class="btn btn-info">Detalles</a>
+                              <a href=""class="btn btn-warning">Editar</a>
+                              <a href=""class="btn btn-danger">Eliminar</a>
+                          </td>
+                      </tr>
                 </tr>
                 @endforeach
 
                 </tbody>
-            </table>
+                </table>
 
-            {{$users->links()}}
+            {{$companies->links()}}
         </div>
     </div>
 </div>

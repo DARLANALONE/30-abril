@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
                 'name' => $faker->name,
                 'lastname' => $faker->lastName,
                 'email' => $faker->email,
-            ]);
+                            ]);
         }
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompaniesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,8 @@ Route::get('users/{id}',[\App\Http\Controllers\UserController::class,'show']);
 Route::get('users/edit/{id}',[\App\Http\Controllers\UserController::class,'edit']);
 Route::delete('users/{id}',[\App\Http\Controllers\UserController::class,'destroy']);
 Route::put('users/{id}',[\App\Http\Controllers\UserController::class,'update']);
+
+Route::get('companies',[CompaniesController::class,'index']);
+Route::get('companies/create',[CompaniesController::class,'create']);
+Route::post('companies',[\App\Http\Controllers\CompaniesController::class,'store']);
 
